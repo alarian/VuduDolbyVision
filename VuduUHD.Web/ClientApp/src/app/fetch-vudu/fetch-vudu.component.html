@@ -1,0 +1,30 @@
+<h1>Vudu UHD Dolby Vision Movies</h1>
+
+<p>This component shows all UHD movies from Vudu that are in Dolby Vision.</p>
+
+<p *ngIf="!results"><em>Loading...</em></p>
+
+<table id="movie-table" class='table table-striped' *ngIf="results">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Super Type</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Dynamic Range</th>
+      <th>Release</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let movie of results">
+      <td><img [src]="movie.posterUrl" /></td>
+      <td>{{ movie.title }}</td>
+      <td>{{ movie.superType }}</td>
+      <td>{{ movie.type }}</td>
+      <td>{{ movie.description }}</td>
+      <td>{{ movie.dynamicRange }}</td>
+      <td>{{ movie.releaseDate | date:'longDate'}}</td>
+    </tr>
+  </tbody>
+</table>
